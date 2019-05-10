@@ -9,15 +9,20 @@ para o contrário.
 */
 var isTruthy = function(args){
     return args ? true : false;
-}
+};
+var isTruthy1 = function(args){
+    return !!args;
+};
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 isTruthy(0)
+isTruthy(-0)
 isTruthy('')
 isTruthy(null)
 isTruthy(NaN)
 isTruthy(undefined)
 isTruthy()
+isTruthy(false)
 
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
@@ -110,7 +115,7 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 function adicionaPessoasNoCarro(numPessoas){
-    if(carro.quantidadePessoas === carro.assentos){
+    if((carro.quantidadePessoas === carro.assentos) && (numPessoas < 0)){
         return 'O carro já está lotado!'
     }
     if((carro.quantidadePessoas + numPessoas) > carro.assentos){
